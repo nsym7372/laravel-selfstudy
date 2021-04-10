@@ -1,0 +1,35 @@
+version: '3'
+services:
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: laravel_pga
+        ports:
+            - "8082:80"
+        environment:
+            PGADMIN_DEFAULT_EMAIL: root@sample.com
+            PGADMIN_DEFAULT_PASSWORD: root
+        hostname: laravel_pga
+    web:
+        build:
+            context: .
+            dockerfile: DockerfileWeb
+        container_name: laravel_web
+        hostname: laravel_web
+        volumes:
+            - ./quick-laravel:/var/www/html
+        ports:
+            - "8080:80"
+        tty: true
+    db:
+        build:
+            context: .
+            dockerfile: DockerfileDb
+        container_name: laravel_db
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=postgres
+        ports:
+            - "8081:5432"
+        hostname: laravel_db
+

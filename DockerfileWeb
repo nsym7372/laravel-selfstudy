@@ -1,0 +1,25 @@
+FROM php:7.4.16-apache
+
+# chmod -R guo+w /var/www/html/storage/ &&\
+
+RUN apt-get update &&\
+    apt-get -y install libpq-dev &&\
+    docker-php-ext-install pdo_pgsql
+
+RUN pecl install xdebug &&\
+    docker-php-ext-enable xdebug
+
+RUN a2enmod rewrite
+
+RUN { \
+    echo 'xdebug.client_host=localhost'; \
+    echo 'xdebug.client_port=9003'; \
+    echo 'xdebug.idekey=Listen for XDebug '; \
+    echo 'xdebug.mode=develop,debug'; \
+    echo 'xdebug.start_with_request=yes'; \
+    echo 'xdebug.log=/tmp/xdebug.log'; \
+    } >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+COPY 000-default.conf /etc/apache2/sites-available/
+
+#CMD a2enmod rewrite
