@@ -38,6 +38,19 @@ Route::get('/ctrl/redirect/{id}', 'CtrlController@redirect')
 Route::get('/ctrl/plain', 'CtrlController@plain');
 Route::get('/ctrl/header', 'CtrlController@header');
 
+Route::get('/state/recCookie', 'StateController@recCookie');
+Route::get('/state/readcookie', 'StateController@readCookie');
+Route::get('/state/session_put', 'StateController@session_put');
+Route::get('/state/session_get', 'StateController@session_get');
+
+
+Route::get('/state/form', 'StateController@form');
+Route::post('/state/flash', 'StateController@flash');
+
+Route::get('record/find', 'RecordController@find');
+Route::get('record/where', 'RecordController@where');
+Route::get('record/first', 'RecordController@first');
+
 Route::fallback(function(){
     abort(500);
 });
