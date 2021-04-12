@@ -24,4 +24,12 @@ class RecordController extends Controller
         $ret = Book::where('publisher', '翔泳社')->first();
         return $ret->title;
     }
+
+    public function hasmany(int $id)
+    {
+        # code...
+        return view('record.reviews', [
+            'book' => Book::find($id)
+        ]);
+    }
 }

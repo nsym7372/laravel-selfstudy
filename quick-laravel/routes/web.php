@@ -50,6 +50,7 @@ Route::post('/state/flash', 'StateController@flash');
 Route::get('record/find', 'RecordController@find');
 Route::get('record/where', 'RecordController@where');
 Route::get('record/first', 'RecordController@first');
+Route::get('record/where/{id}', 'RecordController@hasmany');
 
 Route::fallback(function(){
     abort(500);
