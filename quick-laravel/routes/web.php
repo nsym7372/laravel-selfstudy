@@ -54,6 +54,10 @@ Route::get('record/where/{id}', 'RecordController@hasmany');
 
 Route::get('save/create', 'SaveController@create');
 Route::post('save/create', 'SaveController@store');
+Route::get('save/list', 'SaveController@list');
+Route::get('save/edit/{id}', 'SaveController@edit');
+Route::patch('save/{id}', 'SaveController@update');
+Route::post('save/{id}', 'SaveController@delete');
 
 Route::fallback(function(){
     abort(500);
