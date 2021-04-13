@@ -16,7 +16,7 @@ class BooksTableSeeder extends Seeder
         $book = new Book();
         $book->fill([
             "title" => "タイトル１",
-            "prise" => 1000,
+            "price" => 1000,
             "publisher" => "翔泳社",
             "published" => '2020-01-01'
         ]);
@@ -25,7 +25,7 @@ class BooksTableSeeder extends Seeder
         $book1 = new Book();
         $book1->fill([
             "title" => "タイトル２",
-            "prise" => 1000,
+            "price" => 1000,
             "publisher" => "翔泳社",
             "published" => '2020-01-01'
         ]);

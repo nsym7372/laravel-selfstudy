@@ -21,7 +21,7 @@
         @foreach($records as $r)
             <tr>
                 <td>{{$r->title}}</td>
-                <td>{{$r->prise}}</td>
+                <td>{{$r->price}}</td>
                 <td>{{$r->publisher}}</td>
                 <td>{{$r->published}}</td>
             </tr>
