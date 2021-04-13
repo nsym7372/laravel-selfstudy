@@ -57,7 +57,8 @@ Route::post('save/create', 'SaveController@store');
 Route::get('save/list', 'SaveController@list');
 Route::get('save/edit/{id}', 'SaveController@edit');
 Route::patch('save/{id}', 'SaveController@update');
-Route::post('save/{id}', 'SaveController@delete');
+Route::get('save/show/{id}', 'SaveController@show');
+Route::delete('save/{id}', 'SaveController@destroy');
 
 Route::fallback(function(){
     abort(500);

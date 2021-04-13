@@ -44,8 +44,18 @@ class SaveController extends Controller
         return redirect('save/list');
     }
 
-    public function delete(Request $req, int $id)
+    public function show(int $id)
     {
-        # code...
+        return view('save.detail', [
+            'book' => Book::findOrFail($id)
+        ]);
+    }
+
+    public function destroy(int $id)
+    {
+        $book = Book::find($id);
+        $book->delete();
+
+        return redirect('save/list');
     }
 }

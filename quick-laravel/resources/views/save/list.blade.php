@@ -25,7 +25,7 @@
         <td>{{$book->publisher}}</td>
         <td>{{$book->published}}</td>
         <td> <a href="{{action('SaveController@edit', ['id' => $book->id])}}">編集</a> </td>
-        <td> <a href="{{action('SaveController@delete', ['id' => $book->id])}}">削除</a> </td>
+        <td> <a href="{{action('SaveController@show', ['id' => $book->id])}}">削除</a> </td>
     </tr>
 
     @endforeach
