@@ -15,6 +15,8 @@ class SaveController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, Book::$rules);
+
         $b = new Book();
         $b->fill($request->except('_token'))->save();
         return redirect('save/create');

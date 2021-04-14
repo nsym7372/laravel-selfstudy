@@ -3,6 +3,15 @@
 
 @section('main')
 
+@if(count($errors) > 0)
+    <ul>
+    @foreach($errors->all() as $err)
+        <li class="text-danger">{{$err}}</li>
+    @endforeach
+    </ul>
+@endif
+
+
 <form action="/save/create" method="POST">
     @csrf
     <div class="pl-2"><label id="isbn">ISBNコード：</label><br><input type="text" name="isbn" id="isbn" value="{{old('isbn')}}"></div>
